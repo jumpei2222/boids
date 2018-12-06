@@ -56,7 +56,6 @@ root_3 = 1.732
 
 #0-1のランダムな数字をN行、2列生成
 x = np.random.rand(N, 2) * 700 - 1
-#boid_manager = BoidManager()
 
 img = pygame.image.load("bird_20_20.png")
 
@@ -66,8 +65,6 @@ while playing:
             playing = False
 
     screen.fill(WHITE)
-
-    #boid_manager.update_boids()
     for i in range(N):
         # ここで計算する個体の位置と速度
         x_this = x[i]
@@ -86,8 +83,7 @@ while playing:
         dv_coh[i] = COHESION_FORCE * (np.average(coh_agents_x, axis=0) - x_this) if (len(coh_agents_x) > 0) else 0
         dv_sep[i] = SEPARATION_FORCE * np.sum(x_this - sep_agents_x, axis=0) if (len(sep_agents_x) > 0) else 0
         dv_ali[i] = ALIGNMENT_FORCE * (np.average(ali_agents_v, axis=0) - v_this) if (len(ali_agents_v) > 0) else 0
-        #dist_center = np.linalg.norm(x_this) # 原点からの距離
-        #dv_boundary[i] = - BOUNDARY_FORCE * x_this * (dist_center - 1) / dist_center if (dist_center > 700) else 0
+
     # 速度のアップデートと上限/下限のチェック
     v += dv_coh + dv_sep + dv_ali
     #v += dv_coh + dv_sep + dv_ali + dv_boundary
