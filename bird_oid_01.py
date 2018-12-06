@@ -110,10 +110,6 @@ while playing:
         elif x[i][1] > SCREEN_HEIGHT:
             x[i][1]+= SCREEN_HEIGHT*-1 
     for i in range(N):
-
-        #pygame.draw.polygon(screen, WHITE, [[a[0], a[1]],
-        #                [a[0] + boid_size, a[1] + boid_size*root_3], 
-        #                [a[0] - boid_size, a[1] + boid_size*root_3]])
         r_img = pygame.transform.rotate(img,math.degrees(angle[i-1]))
         screen.blit(r_img,[x[i][0],x[i][1]])
 
