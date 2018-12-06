@@ -1,6 +1,9 @@
 # boids
 bird-oid「鳥っぽいもの」をpygame上で再現します。
 
+
+
+pyboid01.pyは
 https://pastebin.com/NLBsd1K2　
 
 にあったものを丸々コピーしています。
